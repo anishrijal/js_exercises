@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      <script>
+      // Triangle/squares
+
+      function Shape(pEdges){
+      	this.pEdges=pEdges;
+      	this.fnDisplay=function(){
+      		if(pEdges==3){
+      			return "Triangle";
+      		}
+      		else if(pEdges==4){
+      			return "Quadrilateral";
+      		}
+      		else{
+      			return "send the value of pEdges either 3 or 4 ";
+      		}
+      	};
+      }
+
+      function Quadrilateral(length,width, pEdges){
+      	this.fnArea=function(){
+      	    return length*width;
+      	};
+      	this.fnPerimeter=function(){
+      		return 2*(length+width);
+      	};
+      	Shape.call(this, pEdges);
+      }
+
+      function Square(length,width,pEdges){
+      	Quadrilateral.call(this,length,width,pEdges);
+      }
+
+      function Etriangle(base, pEdges){
+
+      	this.fnArea=function(){
+          	return base*base*base/2;
+      	};
+      	this.fnPerimeter=function(){
+      		return 3*base;
+      	};
+      	Shape.call(this,pEdges);
+      }
+
+      Quadrilateral.prototype= Object.create(Shape.prototype);
+      Etriangle.prototype = Object.create(Shape.prototype)
+      Square.prototype= Object.create(Quadrilateral.prototype);
+      var sq = new Square(5,5,4);
+
+      console.log("It is a "+sq.fnDisplay()+" with area: "+sq.fnArea()+" and perimeter: "+ sq.fnPerimeter());
+      var tri = new Etriangle(4,3);
+
+      console.log("It is a "+tri.fnDisplay()+" with area: "+tri.fnArea()+" and perimeter: "+ tri.fnPerimeter());
+
+
+
+
+
+
+      </script>
+    </title>
+  </head>
+  <body>
+
+  </body>
+</html>
