@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>\
+    </title>
+  </head>
+  <body>
+
+<div id='a' class='square' style='display:inlineblock' val='something important'></div>
+
+  <script type="text/javascript">
+  function printAttr(element,array){
+    var attrs =element.attributes;
+    for (var i=0; i<array.length; i++){
+      console.log(attrs[i].value);
+
+      }
+  }
+  window.onload = function(){
+  var el = document.getElementsByTagName('div')[0];
+  printAttr(el,['id', 'class', 'style', 'val']);
+  };
+
+  </script>
+ </body>
+</html>
