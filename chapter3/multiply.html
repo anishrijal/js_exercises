@@ -84,7 +84,32 @@
     img.pixeldata(2,3);
 
     // 5. PROPERTIES OF OBJECTS
+    function CustomObject (a, b) {
+      this.a = a;
+      this.b = b;
+    }
+    var obj = new CustomObject (1, 2);
+    CustomObject.prototype.c = function () { return this.a + this.b; };
 
+    function printObjProp(obj,test){
+      var key;
+      if (!test) {
+       for (key in obj){
+          console.log (key);
+       }
+      }
+      else if (test){
+          for (key in obj){
+              if(obj.hasOwnProperty(key))
+                  console.log(key);
+          }
+
+      }
+    }
+
+    printObjProp (obj);
+    printObjProp (obj, false);
+    printObjProp (obj, true);
 
     </script>
   </head>

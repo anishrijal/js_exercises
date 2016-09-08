@@ -101,6 +101,38 @@
       var delta1=distance(x1,y1,x2,y2);
       distance(x1,x2,y1,y2,z1,z2);
 
+      // 6. DISTANCE BETWEEN TWO POINTS adding array
+
+function dist()
+{
+    if ((arguments.length == 2) && (arguments[0].length == arguments[1].length)==3)
+    {
+      var sum=0;
+      var array =[],arr=[];
+      array[]=argumnets[0];
+      arr[]=argumnets[1];
+      console.log(array,arr);
+      for (var i = 0; i < array.length; i++) {
+          sum+ = Math.pow(array[i] - arr[i], 2);
+
+      }
+      sum = Math.sqrt(sum);
+      return sum;
+      } else if (arguments.length == 4) {
+      return Math.sqrt(
+          Math.pow(arguments[0] - arguments[2], 2) + Math.pow(arguments[1] - arguments[3], 2)
+      );
+      } else if (arguments.length == 6) {
+      return Math.sqrt(
+          Math.pow(arguments[0] - arguments[3], 2) + Math.pow(arguments[1] - arguments[4], 2) + Math.pow(arguments[2] - arguments[5], 2)
+      );
+      } else
+      return "incompatible";
+      }
+
+console.log(dist(1, 2, 2, 2));
+console.log(dist([1, 2, 1], [2, 2, 4]));
+console.log(dist([1, 1], [2, 2, 4]));
       </script>
     </title>
   </head>
