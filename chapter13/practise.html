@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    .divstyle{
+      display: table-cell;
+      border: 3px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- <input type="button" val ue="remove event handler" onclick= "removehandlers()"/> -->
+    <br/><br/><br/><br/>
+    <!-- <input type="button" value="click me" id="button" onmouseover="getEventDetails(event)" onmouseout="getEventDetails(event)"/> -->
+    <!-- <div id ="resDiv"></div> -->
+    <div id ="Div1" class ="divstyle">DIV1<div id ="Div2" class ="divstyle">DIV2<div id ="Div3" class ="divstyle">DIV3</div></div></div>
+    <script type="text/javascript">
+      var divs= document.getElementsByTagName("div");
+      for(i=0;i<divs.length;i++)
+      {
+
+        divs[i].addEventListener("click", clickHandler, true);
+
+        divs[i].addEventListener("click", clickHandler, false);
+
+      }
+
+      function clickHandler(){
+
+        alert(this.getAttribute("id")+ " click event handled");
+      }
+    // butt.addEventListener("click", changeColorOnClick);
+    // butt.addEventListener("mouseout", changeColorOnMouseOut);
+    //
+    // // document.getElementById("button").onclick=changeColorOnClick;
+    //
+    // function changeColorOnClick(){
+    //   this.style.background = 'red';
+    //   butt.disabled =false;
+    //
+    // }
+    // // document.getElementById("button").onmouseout=changeColorOnMouseOut;
+    //
+    // function changeColorOnMouseOut(){
+    //   this.style.background = 'green';
+    //
+    // }
+    // //
+    // function removehandlers(){
+    //   butt.removeEventListener("click",changeColorOnClick);
+    //   butt.removeEventListener("mouseout",changeColorOnMouseOut);
+    //
+    // }
+    //
+    // function getEventDetails(event){
+    //   var eventDetails = "Event Name = " + event.type + "<br/> X = " + event.clientX
+    //                       + "<br/> Y = " + event.clientY + "<br/> Target Type = " + event.target.type
+    //                       +  "<br/> Target Name = " + event.target.tagName;
+    //       document.getElementById("resDiv").innerHTML= eventDetails;
+    //
+    // }
+    //
+
+</script>
+  </body>
+</html>

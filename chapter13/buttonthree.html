@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+
+    </title>
+  </head>
+  <body>
+
+    <button onclick="myFunction()" id= "butt">Click me</button>
+
+    <p id="demo"></p>
+
+    <meter id="myMeter" min="0" max="3" value="0"></meter>
+    <script>
+    var clicks = 0;
+    var x;
+     function myFunction() {
+         clicks += 1;
+         document.getElementById("demo").innerHTML = clicks;
+         x = document.getElementById("myMeter")
+         x.value = clicks;
+         if(x.value==3){
+             clicks=2;
+             removeEventListener("click",myfunction);
+
+            }
+
+     }
+
+    </script>
+
+
+  </body>
+</html>
