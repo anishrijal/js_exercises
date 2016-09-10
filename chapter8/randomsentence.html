@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+  </head>
+  <body>
+
+    <script>
+      var random = ["This is a random sentence",
+                    "randomly present",
+                    "this proofs random function works",
+                    "well still random",
+                    "rand rand rand rand rand" ];
+      Array.prototype.random = function(){
+        return this[Math.floor(Math.random() * this.length)];};
+      function randomsent()
+      {
+          var rand = random.random();
+          console.log(rand)
+      }
+      setInterval (randomsent, 60000);
+
+
+    </script>
+  </body>
+</html>
