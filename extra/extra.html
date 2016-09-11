@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+  </head>
+  <body>
+    <div id="dom">hello</div>
+    <div id="domsecond">the is second</div>
+      <button type ="button" onclick="changeDom()">click</button>
+      <button type ="button" id ="butt">clickthis</button>
+
+    <script>
+// extra exercise 1.1
+    // var myarray = [125,2,32,435,6,0];
+    //  function reversearray(array)
+    //  {
+    //   var sortarray = array.sort((function(x, y){return x - y;}));
+    //     return sortarray.reverse();
+    //  }
+    //   console.log(reversearray(myarray));
+
+// extra exercise 1.2
+      // var myarr =['whenever', 'ambulanceiscomming','youcall'];
+      //
+      // function checkLength(array){
+      //    console.log(array.sort(function(x, y){
+      //        return y.length - x.length;
+      //    }));
+      //    console.log(array.sort(function(x, y){
+      //        return x.length - y.length;
+      //    }));
+      //  }
+      //
+      //  checkLength(myarr);
+// extra exercise 1.3
+
+// extra exercise 1.3
+//   for(var i =0; i<value.length; i++)
+//     {
+//       var dear= value[i];
+//       var count =0;
+//       for(var x=0; x<dear.length; x++ )
+//       {
+//           for(var j =0; j<dear.length; j++)
+//           {
+//             if(dear[x]==vowel[j]){count++;}
+//           }
+//        }
+//     }
+// }
+// consonant(array);
+
+// extra exercise 2
+// var limitFunc = function(fn, num){
+//      var time = 0;
+//      return function(){
+//          if(time < num){time++;
+//          fn();
+//          }
+//          else{console.log('does not execute')}
+//      };
+//  };
+//  var limited = limitFunc(function(){
+//      console.log('executes fine limited()');
+//  },2);
+//  limited();
+//  limited();
+//  limited();
+
+// extra exercise 3.1
+//  function changeDom(){
+       //
+      //    document.getElementById("dom").style.color='red';
+      //    document.getElementById("dom").style.fontSize='xx-large';
+      //    document.getElementById("dom").style.background='green';
+       //
+      //  }
+// extra exercise 3.2
+       //
+      //  butt.addEventListener("click", changeDomUsingThis);
+       //
+       //
+      //  function changeDomUsingThis(){
+      //      this.style.color='red';
+      //      this.style.fontSize='xx-large';
+      //      this.style.background='green';
+      //  }
+
+// extra exercise 4
+      //  var objA = {a: 'tree',aa: 'branch'}
+      //  var objB = {abc: 'root',a2: 'leaves',
+      //              b1: 'wood', bb: 'fire'}
+       //
+      //   function copy(objA, objB, x, y)
+      //   {
+      //     if((typeof x==='undefined')&&(typeof y==='undefined'))
+      //       {
+      //         for(var key in objB){
+      //          if(objB.hasOwnProperty(key)){
+      //            objA[key]=objB[key];
+      //          }
+      //        }
+       //
+      //       }
+      //     else{
+      //       var arr =[x,y];
+      //       for(var i=0; i<arr.length; i++)
+      //       {
+      //           for(var key in objB){
+      //             if((key===arr[i])&&(objB.hasOwnProperty(key)))
+      //           {
+      //              objA[key]=objB[key];
+      //            }
+      //          }
+      //        }
+      //      }
+      //     return objA;
+      //     }
+       //
+      //    console.log(copy(objA, objB, 'b1', 'bb'));
+
+// extra exercise 5.1
+//  var string = "when i was in london styding in a library";
+
+         //
+        //  function vowelreturn(value){
+        //    var vowel ="aeiou";
+        //    for(var i =0; i<value.length; i++)
+        //      {
+        //        for(var j =0; j<vowel.length; j++)
+        //        {
+        //          if(value[i]===vowel[j]){
+        //            console.log(value[i]);
+        //          }
+        //        }
+        //      }
+        //  }
+        //  vowelreturn(string);
+
+// extra exercise 5.2
+// var number = 78932432;
+//
+// function counththenumber(value){
+//
+//   var digits =Math.floor(Math.log10(value), 0) + 1;
+//   return digits;
+// }
+// console.log(counththenumber(number));
+
+// extra exercise 6
+//
+//  var tree ={
+//            A:{a :{
+//                 aa:'aa'
+//               },
+//               b:{
+//                 ba:'ba',
+//                 bb: 'bb'
+//                 },
+//               c:{
+//                 ca:'ca',
+//                 cb:{
+//                     cba:'cba'
+//                     }
+//                 }
+//               }
+//           }
+//
+// function print(value){
+// var key;var x; var y; var z;
+//   for(key in tree)
+//   {  console.log(key);
+//     for(var x in tree[key])
+//     {
+//       console.log(" " + x);
+//       for(var y in tree[key][x])
+//       {for(var z in tree[key][x][y]){}
+//           console.log("   " + y);
+//       }
+//
+//     }
+//   }
+//       console.log("     " + z);
+// }
+//
+//
+// print(tree);
+
+   </script>
+  </body>
+</html>
