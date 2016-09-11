@@ -6,73 +6,71 @@
   </head>
   <body>
     <script>
-    building={
-     Floor01:{
-         Room101:["pc","mouse","john"],
-         Room102:["pc","mouse","mark"],
-         Office101:["mac","mouse","paul"],
-         Office102:["pc","mouse","sandra"]
-     },
-     Floor02:{
-         Room201:["pc","mouse","marry"],
-         Room202:["asa","mouse","jane"],
-         Office201:["pc","mouse","Sara"],
-         Office202:["pc","mouse","dan"],
-     },
-     Floor03:{
-         Room301:["pc","mouse","derrel"],
-         Room302:["asa","mouse","john"]
-     },
-     Floor4:{
-         Room401:["pc","mouse","steve"],
-         Room402:["mac","mouse","robert"]
-     },
-     Floor05:{
-         Room501:["mac","mouse","cassie"],
-         Room502:["mac","mouse","angie"]
-     }
- };
 
- Function.prototype.memoized = function(key){
-     this._values = this._values || {};
-     return this._values[key] !== undefined ?
-       this._values[key] :
-       this._values[key] = this.apply(this, arguments);
-   };
-   Function.prototype.memoize = function(){
-     var fn = this;
-     return function(){
-       return fn.memoized.apply( fn, arguments);
-     };
- };
+  var building=
+  {
+  floor1:{
+          room101:["pc","mouse", "Keyboard", "projector", "David"],
+          room102:["MACbook","mouse", "Keyboard", "Monitor", "Long"],
+          room103:["Printer", "Copy Machine"]
+         },
+  floor2:{
+          room201:["pc","mouse", "Keyboard", "projector", "Alisha"],
+          room202:["MACbook","mouse", "Keyboard", "Monitor", "Kendrick"],
+          room203:["Printer", "Copy Machine"]
+        },
+  floor3:{
+          room301:["pc","mouse", "Keyboard", "Vish"],
+          room302:["mouse", "Keyboard", "pc", "Jaime"],
+          room303:["Printer", "Copy Machine"]
+        }
+  }
 
 
- var searchFn=(function(value,obj){
-     console.log('ran');
- var room;
- var floor;
- var result=[];
- function search(value,obj){
- for(var key in obj){
-     if(Array.isArray(obj[key])){
-         room=key;
-         for(var i=0;i<obj[key].length;i++){
-             if(obj[key][i]==value){
-                 result.push(value+ " was found in Room: "+room+", Floor "+floor);
-             }
-         }
-     }else if(typeof obj[key]== 'object'){
-         floor=key;
-         search(value,obj[key]);
-     }
- }
- }
- search(value,obj);
- return result;
- }).memoize();
+      // Function.prototype.memoized = function(key){
+      // 	this._value =this._value ||{};
+      // 	return this._values[key]!== undefined ?
+      // 	this._values[key] :
+      // 	this._values[key] = this.apply(this, arguments);
+      // };
+      // Function.prototype.memoize = function(){
+      //     var fn = this;
+      //     return function(){
+      //       return fn.memoized.apply( fn, arguments );
+      //     };
+      // };
 
- console.log(searchFn('mac', building));
- console.log(searchFn('pc', building));
+      var searchFn= function(obj,value){
+      var room;
+      var floor;
+      var result=[];
+      function search(obj,value){
+          for(var key in obj){
+              if(Array.isArray(obj[key])){
+                  room=key;
+                  for(var i=0;i<obj[key].length;i++){
+                      if(obj[key][i]==value){
+                          result.push(" "+floor+"/"+room+" ");
+                      }
+
+                  }
+              }else if(typeof obj[key]== 'object'){
+                  floor=key;
+                  search(obj[key],value);
+              }
+          }
+      }
+      search(obj,value);
+      return result;
+      };
+
+      console.log("MACbook: " + searchFn(building, "MACbook"));
+      console.log("mouse: " + searchFn(building, "mouse"));
+      console.log("pc: " + searchFn(building, "pc"));
+      console.log("monitor: " + searchFn(building, "Monitor"));
+      console.log("Keyboard: " + searchFn(building, "Keyboard"));
+      console.log("copymachine: " + searchFn(building, "Copy Machine"));
+
   // building = {
   // F1: {
   //     R1: ["pc", "mouse"],
@@ -96,49 +94,7 @@
   // }
   // }
   //
-  //   Function.prototype.memoized = function(key) {
-  //       this._values = this._values || {}; //covention name to insist that this is going to be private; this.value would be private too
-  //       console.log(this._values)
-  //       return this._values[key] !== undefined ?
-  //           this._values[key] :
-  //           this._values[key] = this.apply(this, arguments);
-  //   };
-  //
-  //   Function.prototype.memoize = function() {
-  //       var fn = this;
-  //       return function() {
-  //           return fn.memoized.apply(fn, arguments);
-  //       };
-  //   };
-  //
-  //
-  //   var searchFn = function(value, obj) {
-  //       var room;
-  //       var floor;
-  //       var result = [];
-  //       console.log("inside search")
-  //
-  //       function search(obj, value) {
-  //           for (var key in obj) {
-  //               if (Array.isArray(obj[key])) {
-  //                   room = key;
-  //                   for (var i = 0; i < obj[key].length; i++) {
-  //                       if (obj[key][i] == value) {
-  //                           result.push("Room: " + room + " Floor " + floor);
-  //                       }
-  //                   }
-  //
-  //               } else if (typeof obj[key] == 'object') {
-  //                   floor = key
-  //                   search(obj[key], value)
-  //               }
-  //
-  //
-  //           }
-  //
-  //       }
-  //       search(obj, value);
-  //       return result
+
   //   }.memoize();
   //
   //   //console.log(searchFn(building,'pc'))
@@ -146,6 +102,7 @@
   //
   //   console.log(searchFn("pc", building))
   //   console.log(searchFn("pc", building))
+
     </script>
 
   </body>
