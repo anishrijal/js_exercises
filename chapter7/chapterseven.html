@@ -2,26 +2,210 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>\
+    <title>
     </title>
+    <style>
+    a{
+      visibility : hidden;
+    }
+    </style>
   </head>
   <body>
-
-<div id='a' class='square' style='display:inlineblock' val='something important'></div>
-
+    <!-- <a href="https://twitter.com/hashtag/yolo?lang=en" id ="#yolo">#yolo</a> -->
   <script type="text/javascript">
-  function printAttr(element,array){
-    var attrs =element.attributes;
-    for (var i=0; i<array.length; i++){
-      console.log(attrs[i].value);
 
-      }
+
+  //  exercise 1
+  function hextorgb(hex){
+    var result= hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+  	if (result){
+  	    var   r= parseInt(result[1],16);
+        var  g= parseInt(result[2],16);
+        var  b= parseInt(result[3],16);
+       console.log("rgb("+r+","+g+","+b+")");
+  	}
   }
-  window.onload = function(){
-  var el = document.getElementsByTagName('div')[0];
-  printAttr(el,['id', 'class', 'style', 'val']);
+  hextorgb("#3020ff");
+
+  //exercise 2
+  var usHoliday = {
+  "09/05": "Labor Day",
+  "07/04": "Independence Day",
+  "04/01": "April Fools Day"
+  };
+  var canHoliday = {
+    "01/08": "Civic Holiday",
+    "01/07": "Canada Day"
   };
 
-  </script>
- </body>
-</html>
+
+  function holiday(date){
+  var result = /(\d{1,2})\/(\d{1,2})\/(\d{4})/.exec(date);
+  var month = result[1];
+  var day = result[2];
+  var year = result[3];
+  var holidayAmerican = 'English US. '+month+"/"+day+"/"+year;
+  var holidayCanada = ' Canada Can '+day+"/"+month+"/"+year;
+
+  console.log(holidayAmerican + " changed to " + holidayCanada);
+
+  var mykey = day + "/" +month;
+  var mykey2 = month + "/" + day;
+
+    for(var key in canHoliday){
+      if(key==mykey){
+        console.log("this a hoilday in Canada: " + canHoliday[key]);
+      }
+
+      }
+
+    for(var key in usHoliday){
+      if(key==mykey2){
+        console.log("this a hoilday in USA: " + usHoliday[key]);
+        }
+        }
+
+  }
+
+  holiday("07/01/2014");
+
+  <!-- // exercise 3
+.abc: when abcjklabc
+a+b?!!1{4} ab!!1111
+.{3}a.b balance atbe
+\w whatever
+\s ' '
+\d 8921
+. anything
+[abc] a b c
+(abc) abc
+[a­zA­Z_\$.]+[A­Za­z_\$0­9.]@[a­zA­Z_\$.]+[a­zA­Z_\$0­9.].(com|net|org){1} rijal77@hotmail.com
+([0oOn]{1}(_|\s)[0oOn]{1})
+
+//exercise 4
+i. Date Format
+Examples:  /[a-zA-Z]+\s\d{2}\s\d{4}/
+1. September 29, 1972
+2. February 99, 0001
+3. June 04, 3000
+
+ii. A letter followed OR preceded by a number
+Examples: /[a-zA-Z]\d+|\d+[a-zA-Z]/
+1. A52
+2. d747
+3. 27X
+4. v2
+
+iii. txt, java, and cpp files with names consisting of only letters
+Examples: /[a-zA-Z]+.(java|cpp|txt)/
+1. test.java
+2. program.cpp
+3. newReport.txt
+
+iv. A 5 character palindrome
+Example: /(.)(.).(\2)(\1)/
+1. abcba
+2. 12321
+3. _1a1_
+
+v. All words that consist of letters from b to y only
+Example:
+input​: “Bee zapp Crow Eagle Zorro  mouse Ape  you”
+output​: [“Bee”,”Crow”,”mouse”,”you”]
+
+vi. All the non nested tag elements in a string
+Example:  /<(\w*)>(.*?)<\/\1>/
+input​: “Is <b>4 < ­1/12</b> true? The <b>answer</b> will <em>surprise</em> you.”
+output​: <b> 4 < ­1/12</b>, <b>answer</b>, <em>surprise</em>  -->
+
+
+//exercise 5(i)
+function shiftthealphanumber(str)
+{
+  var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+    var newStr = "";
+    for (var i = 0; i <= str.length; i++)
+    {
+      for(var j=0; j< alphabet.length; j++)
+      {
+        if(str[i]===alphabet[j].toUpperCase()&&str[i]!="0123456789")
+        {
+          if(alphabet[j]=='9'){newStr = newStr + '0'}
+          else if(alphabet[j].toUpperCase()=='Z'){newStr = newStr + 'A'}
+          else{newStr = newStr + alphabet[j+1].toUpperCase();}
+        }
+      else{
+      if(str[i]===alphabet[j]){
+          if(alphabet[j]=='9'){newStr = newStr + '0'}
+          else if(alphabet[j]=='z'){newStr = newStr + 'a'}
+          else{newStr = newStr + alphabet[j+1];}
+        }}
+      }
+    }
+
+    console.log(newStr);
+}
+shiftthealphanumber('aK89');
+
+// exercise 5(ii)
+
+  var input = "...should never use yolo for any reason...";
+  function output(input){
+    var yolo = "#yolo";
+    var what = yolo.link("https://twitter.com/hashtag/yolo?lang=en");
+    return input.replace(/yolo/, what);
+
+
+  }
+  console.log(output(input));
+      </script>
+    </body>
+  </html>
+<!-- // exercise 3
+.abc: when abcjklabc
+a+b?!!1{4} ab!!1111
+.{3}a.b balance atbe
+\w whatever
+\s ' '
+\d 8921
+. anything
+[abc] a b c
+(abc) abc
+[a­zA­Z_\$.]+[A­Za­z_\$0­9.]@[a­zA­Z_\$.]+[a­zA­Z_\$0­9.].(com|net|org){1} rijal77@hotmail.com
+([0oOn]{1}(_|\s)[0oOn]{1})
+
+//exercise 4
+i. Date Format
+Examples:  /[a-zA-Z]+\s\d{2}\s\d{4}/
+1. September 29, 1972
+2. February 99, 0001
+3. June 04, 3000
+
+ii. A letter followed OR preceded by a number
+Examples: /[a-zA-Z]\d+|\d+[a-zA-Z]/
+1. A52
+2. d747
+3. 27X
+4. v2
+
+iii. txt, java, and cpp files with names consisting of only letters
+Examples: /[a-zA-Z]+.(java|cpp|txt)/
+1. test.java
+2. program.cpp
+3. newReport.txt
+
+iv. A 5 character palindrome
+Example: /(.)(.).(\2)(\1)/
+1. abcba
+2. 12321
+3. _1a1_
+
+v. All words that consist of letters from b to y only
+Example:
+input​: “Bee zapp Crow Eagle Zorro  mouse Ape  you”
+output​: [“Bee”,”Crow”,”mouse”,”you”]
+
+vi. All the non nested tag elements in a string
+Example:  /<(\w*)>(.*?)<\/\1>/
+input​: “Is <b>4 < ­1/12</b> true? The <b>answer</b> will <em>surprise</em> you.”
+output​: <b> 4 < ­1/12</b>, <b>answer</b>, <em>surprise</em>  -->
