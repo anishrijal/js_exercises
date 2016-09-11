@@ -7,109 +7,104 @@
     <script>
     // 1. MULTIPLYING BASE 13
 
-  function mul(x,y){
-  	return (Math.floor((x*y)/13)+""+((x*y)%13));
-  }
-  var answer = mul(9,6);
-  console.log(answer);
+  function mul(x,y){return (x*y).toString(13);}
+  console.log(mul(10,14));
 
   // 2. ADDING N NUMBER
-
-  function add(n){
-  	var sum=0;
-  	for(i=0; i<arguments.length; i++){
-  		sum+=arguments[i];
-  	}
-  	return sum;
-  }
-  var answr=add(1,2)+add(1,4,6,7,2);
-  console.log(answr);
-
+  // function add(n){
+  // 	var sum=0;
+  // 	for(i=0; i<arguments.length; i++){
+  // 		sum+=arguments[i];
+  // 	}
+  // 	return sum;
+  // }
+  // var answr=add(1,2)+add(1,4,6,7,2);
+  // console.log(answr);
     // 3. OBJECTS THAT HOLDS METHODS
-
-    myMath ={add: function(n)
-    			{var add=0;
-    			for(i=0; i<arguments.length; i++){
-    				add = add + arguments[i];
-    				}
-    			return add;
-    			},
-    		 mult:function(n)
-    			{var mult=1;
-    			for(i=0;i<arguments.length;i++){
-    				mult= mult*arguments[i];
-    				}
-    			return mult;
-    			},
-    		frat: function(n)
-    			{var frac=1;
-    		 	for(i=2; i<=n; i++ ){
-    				frac= frac*i;
-    		 		}
-    			return frac;
-    			}
-    }
-    var a = myMath.add(1,2,3);
-    var b = myMath.mult(1,2,3);
-    var c = myMath.frat(8);
-    console.log(a);
-    console.log(b);
-    console.log(c);
-
-    // 4. MOCK'S IMAGE.
-
-    function Image(data, width, height, name)
-    {
-    this.data=data;
-    this.width=width;
-    this.height=height;
-    this.name=name;
-    this.pixeldata=function(x,y){
-    	var matrixify = function(arr, rows, cols) {
-        var matrix = [];
-        if (rows * cols === arr.length) {
-            for(var i = 0; i < arr.length; i+= cols) {
-                matrix.push(arr.slice(i, cols + i));
-            }
-            console.log(matrix[x][y]);
-        }
-    };
-    matrixify(data, 4, 4);
-    };
-    }
-
-    var data = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-    var img= new Image(data, 40, 40, 'myImage');
-
-    img.pixeldata(2,3);
-
-    // 5. PROPERTIES OF OBJECTS
-    function CustomObject (a, b) {
-      this.a = a;
-      this.b = b;
-    }
-    var obj = new CustomObject (1, 2);
-    CustomObject.prototype.c = function () { return this.a + this.b; };
-
-    function printObjProp(obj,test){
-      var key;
-      if (!test) {
-       for (key in obj){
-          console.log (key);
-       }
-      }
-      else if (test){
-          for (key in obj){
-              if(obj.hasOwnProperty(key))
-                  console.log(key);
-          }
-
-      }
-    }
-
-    printObjProp (obj);
-    printObjProp (obj, false);
-    printObjProp (obj, true);
+    //
+    // myMath ={add: function(n)
+    // 			{var add=0;
+    // 			for(i=0; i<arguments.length; i++){
+    // 				add = add + arguments[i];
+    // 				}
+    // 			return add;
+    // 			},
+    // 		 mult:function(n)
+    // 			{var mult=1;
+    // 			for(i=0;i<arguments.length;i++){
+    // 				mult= mult*arguments[i];
+    // 				}
+    // 			return mult;
+    // 			},
+    // 		frat: function(n)
+    // 			{var frac=1;
+    // 		 	for(i=2; i<=n; i++ ){
+    // 				frac= frac*i;
+    // 		 		}
+    // 			return frac;
+    // 			}
+    // }
+    // var a = myMath.add(1,2,3);
+    // var b = myMath.mult(1,2,3);
+    // var c = myMath.frat(8);
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    //
+    // // 4. MOCK'S IMAGE.
+    //
+    // function Image(data, width, height, name)
+    // {
+    // this.data=data;
+    // this.width=width;
+    // this.height=height;
+    // this.name=name;
+    // this.pixeldata=function(x,y){
+    // 	var matrixify = function(arr, rows, cols) {
+    //     var matrix = [];
+    //     if (rows * cols === arr.length) {
+    //         for(var i = 0; i < arr.length; i+= cols) {
+    //             matrix.push(arr.slice(i, cols + i));
+    //         }
+    //         console.log(matrix[x][y]);
+    //     }
+    // };
+    // matrixify(data, 4, 4);
+    // };
+    // }
+    //
+    // var data = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+    // var img= new Image(data, 40, 40, 'myImage');
+    //
+    // img.pixeldata(2,3);
+    //
+    // // 5. PROPERTIES OF OBJECTS
+    // function CustomObject (a, b) {
+    //   this.a = a;
+    //   this.b = b;
+    // }
+    // var obj = new CustomObject (1, 2);
+    // CustomObject.prototype.c = function () { return this.a + this.b; };
+    //
+    // function printObjProp(obj,test){
+    //   var key;
+    //   if (!test) {
+    //    for (key in obj){
+    //       console.log (key);
+    //    }
+    //   }
+    //   else if (test){
+    //       for (key in obj){
+    //           if(obj.hasOwnProperty(key))
+    //               console.log(key);
+    //       }
+    //
+    //   }
+    // }
+    //
+    // printObjProp (obj);
+    // printObjProp (obj, false);
+    // printObjProp (obj, true);
 
     </script>
   </head>
