@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <ul id="ul_test"></ul>
+  <ul id="list"></ul>
+<script type="text/javascript">
+var ul = document.getElementById("ul_test");
+var ul2 = document.getElementById("list");
+
+(function() {
+  var frag = document.createDocumentFragment();
+
+
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode("Document Fragment"));
+  frag.appendChild(li);
+
+  ul.appendChild(frag);
+})();
+
+(function() {
+  var div = document.createElement("div");
+
+
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode("Inside Div"));
+   div.appendChild(li);
+
+  ul.appendChild(div);
+})();
+
+(function() {
+var frag = document.createDocumentFragment();
+for(var x = 0; x < 4; x++) {
+	var li = document.createElement("li");
+  li.appendChild(document.createTextNode(''));
+	li.innerHTML = "List item " + x;
+	frag.appendChild(li);
+}
+
+ul2.appendChild(frag);
+})();
+
+</script>
+  </body>
+</html>

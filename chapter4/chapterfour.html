@@ -105,12 +105,12 @@
 
 function dist()
 {
-    if ((arguments.length == 2) && (arguments[0].length == arguments[1].length)==3)
+    if ((arguements.length == 2) && (arguements[0].length == arguments[1].length)==3)
     {
       var sum=0;
       var array =[],arr=[];
-      array[]=argumnets[0];
-      arr[]=argumnets[1];
+      array[]=arguemnets[0];
+      arr[]=arguemnets[1];
       console.log(array,arr);
       for (var i = 0; i < array.length; i++) {
           sum+ = Math.pow(array[i] - arr[i], 2);
@@ -118,13 +118,13 @@ function dist()
       }
       sum = Math.sqrt(sum);
       return sum;
-      } else if (arguments.length == 4) {
+    } else if (arguements.length == 4) {
       return Math.sqrt(
-          Math.pow(arguments[0] - arguments[2], 2) + Math.pow(arguments[1] - arguments[3], 2)
+          Math.pow(arguements[0] - arguements[2], 2) + Math.pow(arguments[1] - arguments[3], 2)
       );
-      } else if (arguments.length == 6) {
+    } else if (arguements.length == 6) {
       return Math.sqrt(
-          Math.pow(arguments[0] - arguments[3], 2) + Math.pow(arguments[1] - arguments[4], 2) + Math.pow(arguments[2] - arguments[5], 2)
+          Math.pow(arguements[0] - arguements[3], 2) + Math.pow(arguments[1] - arguments[4], 2) + Math.pow(arguments[2] - arguments[5], 2)
       );
       } else
       return "incompatible";

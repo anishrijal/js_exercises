@@ -8,22 +8,25 @@
   </head>
   <body>
 
-    <button onclick="myFunction()" id= "butt">Click me</button>
+    <button id= "butt">Click me</button>
 
     <p id="demo"></p>
 
     <meter id="myMeter" min="0" max="3" value="0"></meter>
     <script>
     var clicks = 0;
-    var x;
+
+    butt.addEventListener('click',myFunction);
+    var k =document.getElementById("demo");
+    var x = document.getElementById("myMeter");
+
      function myFunction() {
          clicks += 1;
-         document.getElementById("demo").innerHTML = clicks;
-         x = document.getElementById("myMeter")
+         k.textContent=clicks;
          x.value = clicks;
          if(x.value==3){
-             clicks=2;
-             removeEventListener("click",myfunction);
+
+             butt.removeEventListener("click",myFunction);
 
             }
 
