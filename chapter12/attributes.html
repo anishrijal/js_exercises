@@ -7,20 +7,23 @@
   </head>
   <body>
 
-<div id='a' class='square' style='display:inlineblock' val='something important'></div>
+<div id='a' class='square' style='display:inlineblock' val='something important' when='today' wanttostudy = 'NO'></div>
 
   <script type="text/javascript">
   function printAttr(element,array){
+    // var ar= Array.prototype.slice.call(array);
     var attrs =element.attributes;
     for (var i=0; i<array.length; i++){
-      console.log(attrs[i].value);
+      var k = array[i];
+      console.log(attrs[k].name+":"+attrs[k].value);
+      // console.log(attrs[i].value);
       // console.log(array[i].value);
 
       }
   }
   window.onload = function(){
   var el = document.getElementsByTagName('div')[0];
-  printAttr(el,['id', 'class', 'style', 'val']);
+  printAttr(el,['id', 'class', 'when', 'wanttostudy']);
   };
 
   </script>

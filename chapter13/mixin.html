@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    // take an object and mix with the object
+    // mixin pattern is use to make multilpe inheritance easy
+    function extend(value){
+      if(!arguments[1])
+      return;
+      for(var k=1; k<arguments.length; k++){
+        var source = arguments[k];
+        for(var key in source){
+          // adding the property not on prototype
+          if(!value[key] && source.hasOwnProperty(key)){
+            value[key]=source[key];
+          }
+        }
+      }
+    }
+
+    function Person(name){
+      this.name = name;
+    }
+
+    function Dog(name){
+      this.name= name;
+    }
+
+    var mixin = {
+      walk: function() {
+        console.log(this.name + " walks. ");
+      },
+      run: function() {
+        console.log(this.name + " runs. ");
+      }
+    }
+
+    var bark={
+      bark: function(){
+        console.log(this.name + " barks. ");
+      }
+    }
+
+    var speak={
+      speak: function(){
+        console.log(this.name + " speaks. ");
+      }
+    }
+
+
+     extend(Person.prototype, mixin, speak);
+     extend(Dog.prototype, mixin, bark);
+     var per= new Person("Mr William");
+     var doggy= new Dog('His Dog');
+     per.walk(); doggy.walk();
+     per.run();doggy.run();
+     per.speak(); doggy.bark();
+
+    </script>
+  </body>
+</html>

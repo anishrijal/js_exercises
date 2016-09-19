@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>hi
+      <div id='suck'>hello
+        <span>Span</span>
+      </div>
+  </div>
+  <div id="test">
+  <b>Hello</b>, I'm a ninja!
+  </div>
+  <script type="text/javascript">
+    // (function() {
+    //     var count = 1;
+    //     this.rootedQuerySelectorAll = function (elem, query) {
+    //     var oldID = elem.id;
+    //     elem.id = "rooted" + (count++);
+    //     console.log(elem.id);
+    //     console.log("#" + elem.id + " " + query);
+    //
+    //     try {
+    //     return elem.querySelectorAll("#" + elem.id + " " + query);
+    //
+    //     }
+    //     catch (e) {
+    //     throw e; }
+    //     finally {
+    //     elem.id  = oldID;
+    //     } };
+    //     })();
+    //
+    //
+    // var b = rootedQuerySelectorAll(document.getElementById("test"), "div b");
+    // if(b.length === 0)
+    // console.log("The selector is now rooted properly.");
+    //
+    // var divs = document.querySelectorAll('div');
+    // console.log(divs.textContent);
+    // var divss = document.getElementById('suck').querySelector('span');
+    // console.log(divss);
+
+    function find(selector, root)
+    {
+      root = root || document;
+      var parts = selector.split(" "),
+      query = parts[0],
+
+      rest = parts.slice(1).join(" "),
+      elems = root.getElementsByTagName(query),
+
+      results = [];
+        for (var i = 0; i < elems.length; i++) {
+          if (rest)
+          {
+
+            console.log(elems[i]);
+            results = results.concat(find(rest, elems[i]));
+          }
+          else
+          {
+            results.push(elems[i]);
+          }
+
+        }
+          return results;
+      };
+
+       var divs = find("div");
+       if(divs.length === 2)
+       console.log("Correct number of divs found.");
+       var divs = find("div", document.body);
+       if(divs.length === 2)
+        console.log("Correct number of divs found in body.");
+       var divs = find("body div");
+       if(divs.length === 2)
+       console.log("Correct number of divs found in body.");
+       var spans = find("div span");
+       if(spans.length === 2)
+       console.log("A duplicate span was found.");
+
+    </script>
+  </body>
+</html>

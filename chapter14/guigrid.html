@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <title>
     </title>
+    <style>
+
+    div{
+      
+      display: table;
+      table-layout: fixed;
+      width: 40%;
+    }
+    </style>
   </head>
   <body>
     <label for="rows">Rows:</label>
@@ -21,7 +30,7 @@
     rows.addEventListener('input',mygrid,true);
     columns.addEventListener('input',mygrid,true);
     function mygrid(event){
-
+      section.innerHTML='';
       var message;
       message = document.getElementById("message");
       message.innerHTML = "";

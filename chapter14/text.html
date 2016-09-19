@@ -3,44 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style>
+      .class1{
+      	column-count: 1;
+      }
+      .class2{
+      	column-count: 2;
+      }
+      .class3{
+      	column-count: 3;
+      }
+      .class4{
+      	column-count: 4;
+      }
+    </style>
   </head>
   <body>
     <label for="cols">How Many Column?</label>
     <input type="textbox" id="rows">
     <p id="message"></p>
-    <p id="para">Lorem ipsum dolor sit amet, consectetur
+    <div id="para" class = "class1">Lorem ipsum dolor sit amet, consectetur
        adipisicing elit, sed do eiusmod tempor incididunt
        ut labore et dolore magna aliqua. Ut enim ad minim
        veniam, quis nostrud exercitation ullamco laboris
        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-      officia deserunt mollit anim id est laborum.</p>
+      officia deserunt mollit anim id est laborum.</div>
     <script>
     var para =document.getElementById('para');
-    var k=para.textContent.length;
     var row = document.getElementById('rows');
 
     rows.addEventListener('input',mygrid);
     function mygrid(event){
-      // var firstpara=[];
       var message;
       message = document.getElementById("message");
-      message.innerHTML = "";
+      message.textContent = "";
       var x =row.value;
 
-      var y= Math.floor(k/x);
-      console.log(x+" "+y+" "+k);
       try{if(isNaN(x))throw "not a number, Enter a number";}
-      catch(err){ message.innerHTML = "Input " + err;}
+      catch(err){ message.textContent= "Input " + err;}
 
-      for(var i=0;i<para.textContent.length;i++)
-      {
-        // firstpara[i] = firstpara[i] + para.textContent[y];
-            para.textContent.split;
-            // console.log(para);
-
+      if(x<1 || x>4){
+        message.textContent = "Invalid Number enter 1-4";
       }
+      para.setAttribute('class','class'+x);
 
     }
+
     </script>
   </body>
 </html>

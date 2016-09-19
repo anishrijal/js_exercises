@@ -6,10 +6,10 @@
     </title>
   </head>
   <body>
-    <div id="dom">hello</div>
+    <!-- <div id="dom">hello</div>
     <div id="domsecond">the is second</div>
       <button type ="button" onclick="changeDom()">click</button>
-      <button type ="button" id ="butt">clickthis</button>
+      <button type ="button" id ="butt">clickthis</button> -->
 
     <script>
 // extra exercise 1.1
@@ -150,43 +150,61 @@
 // console.log(counththenumber(number));
 
 // extra exercise 6
-//
-//  var tree ={
-//            A:{a :{
-//                 aa:'aa'
-//               },
-//               b:{
-//                 ba:'ba',
-//                 bb: 'bb'
-//                 },
-//               c:{
-//                 ca:'ca',
-//                 cb:{
-//                     cba:'cba'
-//                     }
-//                 }
-//               }
-//           }
-//
-// function print(value){
-// var key;var x; var y; var z;
-//   for(key in tree)
-//   {  console.log(key);
-//     for(var x in tree[key])
-//     {
-//       console.log(" " + x);
-//       for(var y in tree[key][x])
-//       {for(var z in tree[key][x][y]){}
-//           console.log("   " + y);
-//       }
-//
-//     }
-//   }
-//       console.log("     " + z);
-// }
-//
-//
-// print(tree);
+
+ var tree ={
+           A:{a :{
+                aa:'aa'
+              },
+              b:{
+                ba:'ba',
+                bb: 'bb'
+                },
+              c:{
+                ca:'ca',
+                cb:{
+                    cba:'cba'
+                    }
+                }
+              }
+          }
+
+
+var space=" ";
+
+
+var i=0;
+
+function print(value){
+
+  for(var key in value)
+  {
+
+        if(typeof value[key]==='object')
+        {
+          var s = space.repeat(i);
+          console.log(s+ key);
+
+          i=i+1;
+          var newTree=value[key];
+          print(newTree);
+        }
+
+        else{
+          var s= space.repeat(i);
+
+          console.log(s + value[key]);
+
+        }
+
+
+    }
+    i=i-1;
+
+}
+
+
+print(tree);
+
 
    </script>
   </body>

@@ -26,21 +26,20 @@
         }
   }
 
+  Function.prototype.memoized = function(key){
+      this._values = this._values || {};
+      return this._values[key] !== undefined ?
+        this._values[key] :
+        this._values[key] = this.apply(this, arguments);
+    };
+    Function.prototype.memoize = function(){
+      var fn = this;
+      return function(){
+        return fn.memoized.apply( fn, arguments);
+      };
+  };
 
-      // Function.prototype.memoized = function(key){
-      // 	this._value =this._value ||{};
-      // 	return this._values[key]!== undefined ?
-      // 	this._values[key] :
-      // 	this._values[key] = this.apply(this, arguments);
-      // };
-      // Function.prototype.memoize = function(){
-      //     var fn = this;
-      //     return function(){
-      //       return fn.memoized.apply( fn, arguments );
-      //     };
-      // };
-
-      var searchFn= function(obj,value){
+      var searchFn= (function(obj,value){
       var room;
       var floor;
       var result=[];
@@ -56,13 +55,13 @@
                   }
               }else if(typeof obj[key]== 'object'){
                   floor=key;
-                  search(obj[key],value);
+                  search(value, obj[key]);
               }
           }
       }
-      search(obj,value);
+      search(value,obj);
       return result;
-      };
+    }).memoize();
 
       console.log("MACbook: " + searchFn(building, "MACbook"));
       console.log("mouse: " + searchFn(building, "mouse"));
