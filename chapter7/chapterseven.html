@@ -4,14 +4,9 @@
     <meta charset="utf-8">
     <title>
     </title>
-    <style>
-    a{
-      visibility : hidden;
-    }
-    </style>
   </head>
   <body>
-    <!-- <a href="https://twitter.com/hashtag/yolo?lang=en" id ="#yolo">#yolo</a> -->
+    <p id="para">...should never use yolo for any reason...</p>
   <script type="text/javascript">
 
 
@@ -149,23 +144,19 @@
 
 // exercise 5(ii)
 
-  var input = "...should never use yolo for any reason...";
   function output(input){
+          var para = document.getElementById('para');
+          para.textContent.replace(input, function(){
+          var change =document.createElement('a');
+          change.href = "https://twitter.com/search?q=%23"+input;
+          change.textContent = '#' + input;
 
+          return para.appendChild(change);
+        })
 
+      }
+    output('use');
 
-  return input.replace('yolo',
-      function() {
-          var yolo = yolo.link('http://twitter.com/yolo');
-
-          return '#' + yolo;
-      });
-
-}
-
-
-
-  console.log(output(input));
       </script>
     </body>
   </html>

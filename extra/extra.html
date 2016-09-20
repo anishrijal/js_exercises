@@ -16,8 +16,8 @@
     // var myarray = [125,2,32,435,6,0];
     //  function reversearray(array)
     //  {
-    //   var sortarray = array.sort((function(x, y){return x - y;}));
-    //     return sortarray.reverse();
+    //   var sortarray = array.sort((function(x, y){return y - x;}));
+    //
     //  }
     //   console.log(reversearray(myarray));
 
@@ -51,6 +51,81 @@
 //     }
 // }
 // consonant(array);
+  var vowel='aeiou';
+var arrayWord= ['television', 'education', 'wheathers', 'in'];
+// var arrayWord= ['television','in'];
+// 'tlvsn5', 'dctn 4', 'whthrs6', 'n1'
+// wheathers, television, education, in and other way around.
+function consonant(arrayValue){
+  console.log(arrayValue.sort(function(x, y){
+    var xCount=0;
+    var yCount=0;
+
+        for(var i=0; i<x.length; i++){
+          for(var j=0; j<vowel.length; j++){
+              if(x.charAt(i)==vowel.charAt(j)){
+                xCount++;
+                }
+              }
+            }
+        var xcount = x.length - xCount;
+       for(var i=0; i<y.length; i++){
+          for(var j=0; j<vowel.length; j++){
+              if(y.charAt(i)!=vowel.charAt(j)){
+             yCount++;
+
+          }
+          }
+     }
+       var ycount = y.length - yCount;
+      return xcount-ycount;
+
+  }));
+  console.log(arrayValue.sort(function(x, y){
+    var xCount=0;
+    var yCount=0;
+    for(var i=0; i<x.length; i++){
+      for(var j=0; j<vowel.length; j++){
+          if(x.charAt(i)==vowel.charAt(j)){
+            xCount++;
+            }
+          }
+        }
+   var xcount = x.length - xCount;
+   for(var i=0; i<y.length; i++){
+      for(var j=0; j<vowel.length; j++){
+          if(y.charAt(i)!=vowel.charAt(j)){
+         yCount++;
+
+      }
+      }
+    }
+   var ycount = y.length - yCount;
+   return yCount-xCount;
+
+  }));
+}
+consonant(arrayWord);
+
+// function checks(value){
+//    total= 0;
+//    run = 0;
+//        var checker =/([b-df-hj-np-tv-z])/g;
+//        var number= value.match(checker);
+//        return number.length;
+//  }
+//
+//  var part3 = ['donovan','john','greg','davin'];
+//  function checkLength(values){
+//  //console.log(part2[0].length);
+//    console.log(values.sort(function(a, b){
+//        return checks(a) - checks(b);
+//    }));
+//        console.log(values.sort(function(a, b){
+//        return checks(b) - checks(a);
+//    }));
+//  }
+ // checkLength(part3);
 
 // extra exercise 2
 // var limitFunc = function(fn, num){
@@ -68,7 +143,7 @@
 //  limited();
 //  limited();
 //  limited();
-
+//
 // extra exercise 3.1
 //  function changeDom(){
        //
@@ -87,7 +162,7 @@
       //      this.style.fontSize='xx-large';
       //      this.style.background='green';
       //  }
-
+//
 // extra exercise 4
       //  var objA = {a: 'tree',aa: 'branch'}
       //  var objB = {abc: 'root',a2: 'leaves',
@@ -120,10 +195,10 @@
       //     }
        //
       //    console.log(copy(objA, objB, 'b1', 'bb'));
-
+//
 // extra exercise 5.1
 //  var string = "when i was in london styding in a library";
-
+//
          //
         //  function vowelreturn(value){
         //    var vowel ="aeiou";
@@ -138,7 +213,7 @@
         //      }
         //  }
         //  vowelreturn(string);
-
+//
 // extra exercise 5.2
 // var number = 78932432;
 //
@@ -148,62 +223,62 @@
 //   return digits;
 // }
 // console.log(counththenumber(number));
-
+//
 // extra exercise 6
-
- var tree ={
-           A:{a :{
-                aa:'aa'
-              },
-              b:{
-                ba:'ba',
-                bb: 'bb'
-                },
-              c:{
-                ca:'ca',
-                cb:{
-                    cba:'cba'
-                    }
-                }
-              }
-          }
-
-
-var space=" ";
-
-
-var i=0;
-
-function print(value){
-
-  for(var key in value)
-  {
-
-        if(typeof value[key]==='object')
-        {
-          var s = space.repeat(i);
-          console.log(s+ key);
-
-          i=i+1;
-          var newTree=value[key];
-          print(newTree);
-        }
-
-        else{
-          var s= space.repeat(i);
-
-          console.log(s + value[key]);
-
-        }
-
-
-    }
-    i=i-1;
-
-}
-
-
-print(tree);
+//
+ // var tree ={
+ //           A:{a :{
+ //                aa:'aa'
+ //              },
+ //              b:{
+ //                ba:'ba',
+ //                bb: 'bb'
+ //                },
+ //              c:{
+          //       ca:'ca',
+          //       cb:{
+          //           cba:'cba'
+          //           }
+          //       }
+          //     }
+          // }
+//
+//
+// var space=" ";
+//
+//
+// var i=0;
+//
+// function print(value){
+//
+//   for(var key in value)
+//   {
+//
+//         if(typeof value[key]==='object')
+//         {
+//           var s = space.repeat(i);
+//           console.log(s+ key);
+//
+//           i=i+1;
+//           var newTree=value[key];
+//           print(newTree);
+//         }
+//
+//         else{
+//           var s= space.repeat(i);
+//
+//           console.log(s + value[key]);
+//
+//         }
+//
+//
+//     }
+//     i=i-1;
+//
+// }
+//
+//
+// print(tree);
 
 
    </script>
