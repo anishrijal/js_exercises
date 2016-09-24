@@ -26,7 +26,7 @@
         }
   }
 
-  Function.prototype.memoized = function(key){
+  Function.prototype.memoized = function(obj,key){
       this._values = this._values || {};
       return this._values[key] !== undefined ?
         this._values[key] :
@@ -73,19 +73,19 @@
       console.log("MACbook found in: " + searchFn(building, "MACbook"));
       // MACbook found in:  floor1/room101 , floor2/room202
 
-      // console.log("mouse found in: " + searchFn(building, "mouse"));
+      console.log("mouse found in: " + searchFn(building, "mouse"));
       //mouse found in:  floor1/room101 , floor1/room102 , floor2/room201 , floor2/room202 , floor3/room301 , floor3/room302
 
-      // console.log("pc found in: " + searchFn(building, "pc"));
+      console.log("pc found in: " + searchFn(building, "pc"));
       // pc found in:  floor1/room102 , floor2/room201 , floor3/room301 , floor3/room302
 
-      // console.log("monitor found in: " + searchFn(building, "Monitor"));
+      console.log("monitor found in: " + searchFn(building, "Monitor"));
       // monitor found in:  floor1/room101 , floor2/room202
 
-      // console.log("Keyboard found in: " + searchFn(building, "Keyboard"));
+      console.log("Keyboard found in: " + searchFn(building, "Keyboard"));
       // Keyboard found in:  floor1/room101 , floor1/room102 , floor2/room201 , floor2/room202 , floor3/room301 , floor3/room302
 
-      // console.log("copymachine found in: " + searchFn(building, "Copy Machine"));
+      console.log("copymachine found in: " + searchFn(building, "Copy Machine"));
       // copymachine found in:  floor1/room103 , floor2/room203 , floor3/room303
 
     </script>

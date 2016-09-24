@@ -146,16 +146,18 @@
 
   function output(input){
           var para = document.getElementById('para');
-          para.textContent.replace(input, function(){
-          var change =document.createElement('a');
-          change.href = "https://twitter.com/search?q=%23"+input;
-          change.textContent = '#' + input;
+            var kill = '<a href="https://twitter.com/search?q=%23" + input + >#'+input+'</a>';
+          // var change =document.createElement('a');
+          // change.href = "https://twitter.com/search?q=%23"+input;
+          // change.textContent = '#' + input;
+          // console.log(change);
 
-          return para.appendChild(change);
-        })
+
+          para.innerHTML = para.textContent.replace(input, kill);
+          return para.innerHTML;
 
       }
-    output('use');
+    output('should');
 
       </script>
     </body>
